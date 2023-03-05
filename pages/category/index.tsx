@@ -39,7 +39,7 @@ const Blog: React.FC<Props> = ({
 export const getStaticProps: GetStaticProps = async (/* { params } */) => {
   // const id = params?.id as string;
   const data = await client.get({
-    endpoint: process.env.SERVICE_ID as string,
+    endpoint: `${process.env.SERVICE_ID}?limit=100` as string,
     // contentId: id
   });
 

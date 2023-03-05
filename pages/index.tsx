@@ -3,8 +3,8 @@ import Card from "~/components/molecules/Card"
 import Layout from "~/components/templetes/Layouts"
 import { client } from "~/libs/client"
 import { Blog } from "~/libs/types"
-import { cardDescriptions } from "~/propaties"
-import { useIsSP } from "~/utils"
+import { cardDescriptions } from "~/libs/propaties"
+import { useIsSP } from "~/libs/utils"
 
 import styles from "./index.module.scss"
 
