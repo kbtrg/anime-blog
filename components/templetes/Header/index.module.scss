@@ -1,0 +1,16 @@
+@import "~/styles/variables.scss";
+@import "~/styles/utils.scss";
+
+.header {
+  height: 70px;
+  padding: 0 20px;
+  margin: 0;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  
+  &_top {
+    font-size: 22px;
+    color: white;
+  }
+}
