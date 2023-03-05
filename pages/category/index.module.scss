@@ -1,0 +1,57 @@
+@import "~/styles/variables.scss";
+@import "~/styles/utils.scss";
+
+.container {
+  width: $max-width;
+  margin: 0 auto;
+  padding-top: 50px;
+
+  .content {
+    margin-bottom: 60px;
+
+    .titleBox{
+      padding: 0.5em 1em;
+      margin: 30px 0;
+      color: #232323;
+      background: #fff8e8;
+      border-left: solid 10px #ffc06e;
+  
+      h3{
+        font-size: 22px;
+        font-weight: 700;
+      }
+    }
+  
+    .subTitle {
+      padding: 20px;
+      background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+      background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+      line-height: 22px;
+    }
+  
+    .sammaryBox {
+      position: relative;
+      margin: 30px 0;
+      padding: 20px;
+      border: solid 3px #95ccff;
+      border-radius: 8px;
+  
+      .title {
+        position: absolute;
+        display: inline-block;
+        top: -13px;
+        left: 10px;
+        padding: 0 9px;
+        line-height: 1;
+        font-size: 19px;
+        background: #FFF;
+        color: #95ccff;
+        font-weight: bold;
+      }
+
+      p {
+        line-height: 22px;
+      }
+    }
+  }
+}

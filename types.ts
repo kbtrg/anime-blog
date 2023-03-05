@@ -8,6 +8,7 @@ export type Category =
   | "変わったテイスト系"
 
 export type CardDescriptions = {
+  id: string
   category: Category,
   description: string
 }

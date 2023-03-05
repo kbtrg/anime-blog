@@ -1,4 +1,3 @@
-import get from "lodash/get"
 import { GetStaticProps } from "next"
 import Card from "~/components/molecules/Card"
 import Layout from "~/components/templetes/Layouts"
@@ -29,11 +28,23 @@ const Home: React.FC<Props> = ({
         </section>
 
         <section className={styles.mainContent}>
+          <Card
+            title="全てのアニメ"
+            description="おすすめのアニメを全列挙！（β版）"
+            href="category"
+            className={styles.allContents}
+          />
+
+          <div>作成中...</div>
           <div className={styles.cards}>
             {cardDescriptions.map((cardDescription, i) => {
-              const description = get(cardDescription, "description")
               return (
-                <Card key={i} description={description} />
+                <Card 
+                  key={i}
+                  title={cardDescription.category}
+                  description={cardDescription.description}
+                  href={`/${cardDescription.id}`}
+                />
               )
             })}
           </div>
@@ -51,16 +62,16 @@ const Home: React.FC<Props> = ({
 }
 
 // SSGでMicroCMSからデータ取得
-export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.get({
-    endpoint: process.env.SERVICE_ID as string
-  })
+// export const getStaticProps: GetStaticProps = async () => {
+//   const data = await client.get({
+//     endpoint: process.env.SERVICE_ID as string
+//   })
 
-  return {
-    props: {
-      blog: data.contents
-    }
-  }
-}
+//   return {
+//     props: {
+//       blog: data.contents
+//     }
+//   }
+// }
 
 export default Home

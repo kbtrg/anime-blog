@@ -5,5 +5,6 @@ export type Blog = {
   publishedAt: string,
   revisedAt: string,
   title: string
-  body: string
+  subTitle: string
+  sammary: string
 }
