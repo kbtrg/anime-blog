@@ -32,6 +32,16 @@ export const cardDescriptions: CardDescriptions[] = [
     description: "仲間との絆。努力の素晴らしさ。たまに出る格言。結構いろんなものが詰まってることが多いです。"
   },
   {
+    id: "food",
+    category: "グルメ系",
+    description: "仲間との絆。努力の素晴らしさ。たまに出る格言。結構いろんなものが詰まってることが多いです。"
+  },
+  {
+    id: "romanticComedy",
+    category: "ラブコメ系",
+    description: "仲間との絆。努力の素晴らしさ。たまに出る格言。結構いろんなものが詰まってることが多いです。"
+  },
+  {
     id: "unusual",
     category: "変わったテイスト系",
     description: "なんか独特な作品たち。そんな中でも心を動かされたものをピックアップしました。"
