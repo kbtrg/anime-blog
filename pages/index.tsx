@@ -1,9 +1,13 @@
+import get from "lodash/get"
 import { GetStaticProps } from "next"
-import styles from "./index.module.scss"
-
+import Card from "~/components/molecules/Card"
+import Layout from "~/components/templetes/Layouts"
 import { client } from "~/libs/client"
 import { Blog } from "~/libs/types"
-import Link from "next/link"
+import { cardDescriptions } from "~/propaties"
+import { useIsSP } from "~/utils"
+
+import styles from "./index.module.scss"
 
 type Props = {
   blog: Blog[]
@@ -12,15 +16,37 @@ type Props = {
 const Home: React.FC<Props> = ({
   blog
 }) => {
+  const isSP = useIsSP()
 
   return (
-    <section className={styles.container}>
-      {blog.map((blog, i) => (
-        <li key={i}>
-          <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
-        </li>
-      ))}
-    </section>
+    <Layout>
+      <section className={styles.container}>
+        <section className={styles.titleBox}>
+          <div>
+            <p>絶対に損はさせません！</p>
+            <p>僕のdアニメストアの{isSP && <br />}「お気に入り」を全公開！</p>
+          </div>
+        </section>
+
+        <section className={styles.mainContent}>
+          <div className={styles.cards}>
+            {cardDescriptions.map((cardDescription, i) => {
+              const description = get(cardDescription, "description")
+              return (
+                <Card key={i} description={description} />
+              )
+            })}
+          </div>
+          
+
+          {/* {blog.map((blog, i) => (
+            <li key={i}>
+              <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+            </li>
+          ))} */}
+        </section>
+      </section>
+    </Layout>
   )
 }
 
@@ -29,7 +55,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get({
     endpoint: process.env.SERVICE_ID as string
   })
-    
+
   return {
     props: {
       blog: data.contents
